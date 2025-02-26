@@ -29,7 +29,7 @@ REPO_ID = "your_username/your_repo"  # Replace with your repository ID
 2. Creates a temporary directory to stage files.
 3. Copies all files from the local directory except `.git`.
 4. Uploads the staged files to the specified Hugging Face repository.
-
+> Why we exclude .git directory : its because hugginface sometimes say can continue because .git found or to keep the local git changes and huggingface changes separate  
 ## Running the Script
 
 Run the script using Python:
@@ -151,3 +151,26 @@ This will prompt you to enter your Hugging Face API token.
 Your repository will now be available on the Hugging Face Hub.
 
 
+### Steps to Upload Model Weights
+
+1. Track large files using Git LFS:
+   ```bash
+   git lfs track "*.bin"
+   git lfs track "*.pt"
+   ```
+> or you could give give git lfs track `path/model_weights/*` to track all the files in the path or `path/model_weights/*.ckpt` to only track files with this extension 
+2. Add the Hugging Face repository as a remote:
+   ```bash
+   git remote add origin https://huggingface.co/your_username/your_repo.git
+   ```
+3. Add and commit your files:
+   ```bash
+   git add .gitattributes *.bin *.pt
+   git commit -m "Add model weights"
+   ```
+4. Push the repository to Hugging Face:
+   ```bash
+   git push origin main
+   ```
+
+Your model weights will now be stored and managed using Git LFS on the Hugging Face Hub.
