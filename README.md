@@ -159,6 +159,7 @@ Your repository will now be available on the Hugging Face Hub.
    git lfs track "*.pt"
    ```
 > or you could give give git lfs track `path/model_weights/*` to track all the files in the path or `path/model_weights/*.ckpt` to only track files with this extension
+
 > To track a full folder you can type
 ```
 git lfs track "dir_name/**"
