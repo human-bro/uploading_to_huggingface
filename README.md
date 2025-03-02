@@ -158,7 +158,12 @@ Your repository will now be available on the Hugging Face Hub.
    git lfs track "*.bin"
    git lfs track "*.pt"
    ```
-> or you could give give git lfs track `path/model_weights/*` to track all the files in the path or `path/model_weights/*.ckpt` to only track files with this extension 
+> or you could give give git lfs track `path/model_weights/*` to track all the files in the path or `path/model_weights/*.ckpt` to only track files with this extension
+> To track a full folder you can type
+```
+git lfs track "dir_name/**"
+```
+> and this will make git lfs track the full folder
 2. Add the Hugging Face repository as a remote:
    ```bash
    git remote add origin https://huggingface.co/your_username/your_repo.git
